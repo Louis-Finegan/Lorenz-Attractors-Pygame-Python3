@@ -37,45 +37,53 @@ class plot:
 
         # Main loop
         running = True
+        pressed_enter = False
         iargs = 0
         while running:
             # runs at 30 fps
             clock.tick(30)
-
-            # generates 3 points at the locs: (x0, y0) (x1, y1) (x2, y2) for every update
-            try:
-                x0 = int(self.size[0]/2 + self.solution[0].y[0][iargs]*10)
-                y0 = int(self.size[1]/2 + self.solution[0].y[1][iargs]*10)
-                x1 = int(self.size[0]/2 + self.solution[1].y[0][iargs]*10)
-                y1 = int(self.size[1]/2 + self.solution[1].y[1][iargs]*10)
-                x2 = int(self.size[0]/2 + self.solution[2].y[0][iargs]*10)
-                y2 = int(self.size[1]/2 + self.solution[2].y[1][iargs]*10)
-
-                iargs += 1
-                pygame.draw.circle(screen, colors[0], (x0, y0), 1)
-                pygame.draw.circle(screen, colors[1], (x1, y1), 1)
-                pygame.draw.circle(screen, colors[2], (x2, y2), 1)
-                pygame.display.flip()
-                pygame.time.wait(10)
-            
-            except IndexError:
-                running = False
 
             for event in pygame.event.get():
                 # Quit Game
                 if event.type == pygame.QUIT:
                     running = False        
                 
+                # Press enter to start
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_s:
+                        pressed_enter = True
+
                 # Press q to Quit Game
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
-                        running = False
+                            running = False
 
                 # Press r to reset game
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_r:
                         running = False
-                        self.game()        
+                        self.game()
+                        pressed_enter = True      
+
+            if pressed_enter:
+                # generates 3 points at the locs: (x0, y0) (x1, y1) (x2, y2) for every update
+                try:
+                    x0 = int(self.size[0]/2 + self.solution[0].y[0][iargs]*10)
+                    y0 = int(self.size[1]/2 + self.solution[0].y[1][iargs]*10)
+                    x1 = int(self.size[0]/2 + self.solution[1].y[0][iargs]*10)
+                    y1 = int(self.size[1]/2 + self.solution[1].y[1][iargs]*10)
+                    x2 = int(self.size[0]/2 + self.solution[2].y[0][iargs]*10)
+                    y2 = int(self.size[1]/2 + self.solution[2].y[1][iargs]*10)
+
+                    iargs += 1
+                    pygame.draw.circle(screen, colors[0], (x0, y0), 1)
+                    pygame.draw.circle(screen, colors[1], (x1, y1), 1)
+                    pygame.draw.circle(screen, colors[2], (x2, y2), 1)
+                    pygame.display.flip()
+                    pygame.time.wait(10)
+                
+                except IndexError:
+                    running = False
 
         pygame.quit()
 

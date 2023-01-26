@@ -34,4 +34,4 @@ The System of Ordinary Differential Equation were solved by using: `solve_ivp` f
 
 ## How to use
 
-Run the python file `main.py`. The pygame display will appear with the solution gerenating automatically. to quit press `q` or close the display. to reset the display press `r`.
+Run the python file `main.py`. The pygame display will appear. Press `s` to start generating the solution, press `q` to quit or close the display and press `r` to reset the display.
