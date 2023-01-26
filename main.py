@@ -48,22 +48,22 @@ class plot:
                 if event.type == pygame.QUIT:
                     running = False        
                 
-                # Press enter to start
+                # Excecutes when the key is pushed down
                 if event.type == pygame.KEYDOWN:
+                    # Press enter to start
                     if event.key == pygame.K_s:
                         pressed_enter = True
 
-                # Press q to Quit Game
-                if event.type == pygame.KEYDOWN:
+                    # Press q to Quit Game
                     if event.key == pygame.K_q:
                             running = False
 
-                # Press r to reset game
-                if event.type == pygame.KEYDOWN:
+                    # Press r to reset game
                     if event.key == pygame.K_r:
                         running = False
+                        pressed_enter = True 
                         self.game()
-                        pressed_enter = True      
+                             
 
             if pressed_enter:
                 # generates 3 points at the locs: (x0, y0) (x1, y1) (x2, y2) for every update
