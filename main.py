@@ -35,6 +35,14 @@ class plot:
         colors = [(255, 255, 255), (255, 0, 0), (0, 0, 255)]
         clock = pygame.time.Clock()
 
+        font = pygame.font.Font("fonts/arial.ttf", 16)
+        text0 = font.render(f"sigma: {np.round(10, 2)}", True, colors[0])
+        text1 = font.render(f"rho: {np.round(28, 2)}", True, colors[0])
+        text2 = font.render(f"beta: {np.round(8/3, 2)}", True, colors[0])
+        screen.blit(text0, (50, 50))
+        screen.blit(text1, (50, 70))
+        screen.blit(text2, (50, 90))
+
         # Main loop
         running = True
         pressed_enter = False
