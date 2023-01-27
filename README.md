@@ -30,8 +30,30 @@ Demonstrate the chaotic nature of the Lorenz Attractors with slight variation in
 
 The initial condition was centered around `[1, 1, 1]`. This is to stop the points in the solution from displaying off the pygame display.
 
-The System of Ordinary Differential Equation were solved by using: `solve_ivp` function, Then the `plot.game` method is called which generates the interactive pygame display with the 3 solutions: white red and blue, appearing point by point at *30 fps*.
+NOTE: Initial conditions will be printed in the terminal.
+
+The System of Ordinary Differential Equation were solved by using, `solve_ivp` function, Then the `plot.game` method is called which generates the interactive pygame display with the 3 solutions: white red and/or blue, appearing point by point at *30 fps*.
 
 ## How to use
 
-Run the python file `main.py`. The pygame display will appear. Press `s` to start generating the solution, press `q` to quit or close the display and press `r` to reset the display.
+Run the python file `main.py`.
+
+1. Press `s` to start then select one of the following options:
+
+* press `a` to generate all 3 solution on the display at the same time.
+
+* press `w` to generate the white solution.
+
+* press `g` to generate the green solution.
+
+* press `b` to generate the green solution.
+
+2. Press `q` or close the window to quit.
+
+3. Press `r` to reset the display.
+
+4. follow on from step 1 to generate a new plot.
+
+## Conclusion
+
+It is clear, by observing all 3 solutions after a sufficent amount of time, there nature is hugely different. Then it can be said with a slight change in the Lorenz Attractors initial conditions, these models will have different solutions after a long period of time. 

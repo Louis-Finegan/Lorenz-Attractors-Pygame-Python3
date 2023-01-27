@@ -8,7 +8,7 @@ import pygame
 class lorenz:
     def __init__(self, y0, sigma, rho, beta):
         self.y0 = y0
-        self.tint = [0, 100]
+        self.tint = [0, 200]
         self.dt = 0.01
         self.sigma = sigma
         self.rho = rho
@@ -32,7 +32,7 @@ class plot:
         size = (800, 600)
         screen = pygame.display.set_mode(size)
         pygame.display.set_caption("Lorenz Attractor")
-        colors = [(255, 255, 255), (255, 0, 0), (0, 0, 255)]
+        colors = [(255, 255, 255), (0, 200, 0), (0, 0, 255)]
         clock = pygame.time.Clock()
 
         font = pygame.font.Font("fonts/arial.ttf", 16)
@@ -45,7 +45,11 @@ class plot:
 
         # Main loop
         running = True
-        pressed_enter = False
+        pressed_s = False
+        pressed_a = False
+        pressed_w = False
+        pressed_b = False
+        pressed_g = False
         iargs = 0
         while running:
             # runs at 30 fps
@@ -60,7 +64,19 @@ class plot:
                 if event.type == pygame.KEYDOWN:
                     # Press enter to start
                     if event.key == pygame.K_s:
-                        pressed_enter = True
+                        pressed_s = True
+
+                    if event.key == pygame.K_a:
+                        pressed_a = True
+
+                    if event.key == pygame.K_w:
+                        pressed_w = True
+
+                    if event.key == pygame.K_b:
+                        pressed_b = True
+
+                    if event.key == pygame.K_g:
+                        pressed_g = True
 
                     # Press q to Quit Game
                     if event.key == pygame.K_q:
@@ -69,11 +85,10 @@ class plot:
                     # Press r to reset game
                     if event.key == pygame.K_r:
                         running = False
-                        pressed_enter = True 
                         self.game()
                              
 
-            if pressed_enter:
+            if pressed_s and pressed_a:
                 # generates 3 points at the locs: (x0, y0) (x1, y1) (x2, y2) for every update
                 try:
                     x0 = int(self.size[0]/2 + self.solution[0].y[0][iargs]*10)
@@ -92,6 +107,33 @@ class plot:
                 
                 except IndexError:
                     running = False
+
+            if pressed_s and pressed_w:
+                x0 = int(self.size[0]/2 + self.solution[0].y[0][iargs]*10)
+                y0 = int(self.size[1]/2 + self.solution[0].y[1][iargs]*10)
+
+                iargs += 1
+                pygame.draw.circle(screen, colors[0], (x0, y0), 1)
+                pygame.display.flip()
+                pygame.time.wait(10)
+
+            if pressed_s and pressed_g:
+                x1 = int(self.size[0]/2 + self.solution[1].y[0][iargs]*10)
+                y1 = int(self.size[1]/2 + self.solution[1].y[1][iargs]*10)
+
+                iargs += 1
+                pygame.draw.circle(screen, colors[1], (x1, y1), 1)
+                pygame.display.flip()
+                pygame.time.wait(10)
+
+            if pressed_s and pressed_b:
+                x2 = int(self.size[0]/2 + self.solution[2].y[0][iargs]*10)
+                y2 = int(self.size[1]/2 + self.solution[2].y[1][iargs]*10)
+
+                iargs += 1
+                pygame.draw.circle(screen, colors[2], (x2, y2), 1)
+                pygame.display.flip()
+                pygame.time.wait(10)
 
         pygame.quit()
 
