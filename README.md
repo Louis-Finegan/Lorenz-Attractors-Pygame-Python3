@@ -2,13 +2,15 @@
 
 ## Lorenz Attractors
 
-System of Ordinary Differential Equations:
+The Lorenz Attractors are governed by the following System of Ordinary Differential Equations:
 
 $$\frac{dx}{dt}=\sigma(y-x)$$
 
 $$\frac{dy}{dt}=x(\rho-z)-y$$
 
 $$\frac{dz}{dt}=xy-\beta z$$
+
+For more information Click [here](https://www.wikiwand.com/en/Lorenz_system).
 
 ## Purpose
 
