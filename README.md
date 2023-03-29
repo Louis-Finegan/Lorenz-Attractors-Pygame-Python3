@@ -10,7 +10,7 @@ $$\frac{dy}{dt}=x(\rho-z)-y$$
 
 $$\frac{dz}{dt}=xy-\beta z$$
 
-For more information Click [here](https://www.wikiwand.com/en/Lorenz_system).
+For more information Click [here](https://en.wikipedia.org/wiki/Lorenz_system).
 
 ## Purpose
 
