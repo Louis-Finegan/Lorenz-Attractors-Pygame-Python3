@@ -149,7 +149,7 @@ if __name__ == '__main__':
                         8/3) for _ in range(3)
                 ]
 
-    print(f'Initial Conditions:\n solution 1 x: {systems[0].y0[0]} y: {systems[0].y0[1]} z: {systems[0].y0[2]}\n solution 2 x: {systems[1].y0[0]} y: {systems[1].y0[1]} z: {systems[1].y0[2]}\n solution 3 x: {systems[2].y0[0]} y: {systems[2].y0[1]} z: {systems[2].y0[2]}')
+    print(f'Initial Conditions:\n solution 1 white x: {systems[0].y0[0]} y: {systems[0].y0[1]} z: {systems[0].y0[2]}\n solution 2 green x: {systems[1].y0[0]} y: {systems[1].y0[1]} z: {systems[1].y0[2]}\n solution 3 blue x: {systems[2].y0[0]} y: {systems[2].y0[1]} z: {systems[2].y0[2]}')
 
     # Solution 1
     solution0 = solve_ivp(lambda t, y: systems[0].lorenz_system(t, y), 
