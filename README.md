@@ -28,7 +28,7 @@ Demonstrate the chaotic nature of the Lorenz Attractors with slight variation in
 
 3 instances of the `lorenz` class were created with slight variation in their initial conditions. these conditions were random using numpy's uniform random number generator:
         
-        `[np.random.uniform(0.99, 1.01),np.random.uniform(0.99, 1.01),np.random.uniform(0.99, 1.01)]`
+        [np.random.uniform(0.99, 1.01),np.random.uniform(0.99, 1.01),np.random.uniform(0.99, 1.01)]
 
 The initial condition was centered around `[1, 1, 1]`. This is to stop the points in the solution from displaying off the pygame display.
 
